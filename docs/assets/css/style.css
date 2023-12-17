@@ -8,11 +8,6 @@ a {
   text-decoration: none;
 }
 
-.resize-image {
-  width: 350px;
-  height: auto;
-}
-
 #table-of-contents {
   overflow-y: scroll;
   position: fixed;
