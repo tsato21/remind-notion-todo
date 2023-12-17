@@ -1,0 +1,92 @@
+---
+layout: default
+title: 'Notion Reminder Class'
+---
+<body>
+
+    <h1 id="overview">Notion Reminder Class Overview</h1>
+
+    <p>The <code>NotionReminder</code> class in this project represents a reminder system that integrates with Notion, providing an efficient way to manage and automate reminders for various tasks or events recorded in Notion databases.</p>
+
+    <h2 id="constructor">Constructor</h2>
+    <code>constructor(sheetName)</code>
+    <p>This function initializes a new instance of the <code>NotionReminder</code> class. It requires the name of a Google Sheets sheet from which it will load the necessary configuration.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><code>sheetName</code>: The name of the Google Sheets sheet to load configuration from.</li>
+    </ul>
+
+    <h2 id="key-methods">Key Methods</h2>
+
+    <h3 id="sheet-name-check">sheetNameCheckTestReminder()</h3>
+    <code>sheetNameCheckTestReminder()</code>
+    <p>Checks if the provided sheet name during the test reminder setup is valid. Returns <code>true</code> if the sheet name is valid, otherwise <code>false</code>.</p>
+
+    <h3 id="load-configuration">loadConfiguration(sheetName)</h3>
+    <code>loadConfiguration(sheetName)</code>
+    <p>Loads the configuration data from the specified sheet in the Google Sheets document.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><code>sheetName</code>: The name of the sheet from which to load the configuration.</li>
+    </ul>
+
+    <h3 id="get-theme-color">getThemeColorHexCode()</h3>
+    <code>getThemeColorHexCode()</code>
+    <p>Retrieves the hexadecimal color code of the theme color from the color list sheet in the Google Sheets document.</p>
+
+    <h3 id="extract-table-id">extractNotionTableIdFromUrl(url)</h3>
+    <code>extractNotionTableIdFromUrl(url)</code>
+    <p>Extracts the Notion table ID from a given Notion URL.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><code>url</code>: The Notion URL from which to extract the table ID.</li>
+    </ul>
+
+    <h3 id="get-todo-data">getTodoData()</h3>
+    <code>getTodoData()</code>
+    <p>Fetches to-do data from the Notion API. Returns an object containing arrays of overdue and throughout to-do items.</p>
+
+    <h3 id="send-reminder">sendReminder(testCheck)</h3>
+    <code>sendReminder(testCheck)</code>
+    <p>Sends a reminder email with to-do data or a test reminder.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><code>testCheck</code>: Indicates whether this function call is a test reminder.</li>
+    </ul>
+
+    <h2 id="setup">Setup</h2>
+    <p>Go to the Notion Reminder custom menu and click on it. A prompt will appear saying "Authorization is required". Follow the instructions to authorize.</p>
+
+    <h2 id="usage">Usage</h2>
+
+    <h3 id="setting-reminder">Setting Reminder for a Notion Table</h3>
+    <p>The process involves creating a new sheet, inputting necessary information, testing a reminder, creating a function in Apps Script, and setting a trigger for that function.</p>
+    <img src="gas-authorization" alt="gas-authorization" id="gas-authorization">
+
+    <ol>
+        <li><strong>Create a New Sheet</strong>: From the "Notion Reminder" custom menu in your Google Sheet, select 'Create New Sheet'. This displays a modal for selecting the table type and theme color. A new sheet is created based on your selections.</li>
+        <img src="create-sheet-modal_1.jpg" alt="Create New Sheet Modal 1" id="create-sheet-modal_1-img">
+        <img src="create-sheet-modal_2.jpg" alt="Create New Sheet Modal 2" id="create-sheet-modal_2-img">
+        <li><strong>Input Necessary Information on Sheet</strong>: Enter the required information in the designated (orange) cells of the new sheet. This includes the Integration API Key, which must be created and inputted.</li>
+        <img src="input-info.jpg" alt="Input Information on Sheet" id="input-info-img">
+        <li><strong>Test the Reminder</strong>: From the "Notion Reminder" custom menu, select 'Test Reminder'. This tests the entire process from reading values in the spreadsheet to referencing the relevant Notion table and properties. If the email is sent, check if the content in the email is as expected.</li>
+        <img src="test-reminder.jpg" alt="Test Reminder" id="test-reminder-img">
+        <img src="test-reminder-email.jpg" alt="Test Reminder Email" id="test-reminder-email-img">
+        <li><strong>Create a Function for the Reminder</strong>: Go to the Apps Script editor, open the "code-each-reminder" file, copy the 'reminderTodoSample' function, rename it, and adjust the parameters to match the name of your reminder sheet.</li>
+        <img src="make-function.jpg" alt="Create Function in Apps Script" id="create-function-img">
+        <li><strong>Set a Trigger for the Function</strong>: Create a trigger in the Apps Script editor to suit your needs.</li>
+        <img src="set-trigger.jpg" alt="Set Trigger" id="set-trigger-img">
+        <img src="set-trigger-2.jpg" alt="Set Trigger" id="set-trigger-2-img">
+    </ol>
+
+    <h3 id="update-index">Update Index Sheet</h3>
+    <p>To update the index sheet with a list of reminder sheets and their descriptions, go to the "Notion Reminder" custom menu and select 'Update Index Sheet'.</p>
+    <img src="click-update-index.jpg" alt="Update Index Sheet" id="update-index-img">
+    <img src="update-index-sheet.jpg" alt="Update Index Sheet" id="update-index-img">
+
+    <h2 id="additional-notes">Additional Notes</h2>
+    <p>Further customization and modifications can be made to the scripts and the overall process based on specific needs and user expertise.</p>
+
+    <p><em>Note: The instructions assume a basic understanding of Google Sheets, Google Apps Script, and Notion API.</em></p>
+
+</body>

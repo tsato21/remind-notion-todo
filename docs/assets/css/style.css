@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0; /* Reset default margin */
+}
+
+a {
+  color: blue; /* This will make all links blue */
+  text-decoration: none;
+}
+
+.resize-image {
+  width: 350px;
+  height: auto;
+}
+
+#table-of-contents {
+  overflow-y: scroll;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px; /* Width of the ToC */
+  background-color: #f8f9fa; /* Background color for ToC */
+  padding: 1em;
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+#main-content {
+  margin-left: 250px; /* Margin to accommodate the width of the ToC */
+  padding: 20px; /* Padding for the main content */
+}
+
+/* Style the header to match the main content area */
+header {
+  padding-left: 250px; /* This should match the ToC width if you want it aligned with the main content */
+}
+
+/* Adjust the footer to match the main content area as well */
+footer {
+  padding-left: 250px; /* This should match the ToC width */
+}
+
+/* Optional: Style the list within the ToC for better appearance */
+#table-of-contents ul {
+  list-style-type: none; /* Removes default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+#table-of-contents li {
+  padding: 0.4em 0; /* Add some padding to each list item for spacing */
+}
+
+#table-of-contents a:hover {
+  color: #00008B; /* Change the color to red on hover, or choose your own color */
+}
+
+/* Add additional styles as needed */

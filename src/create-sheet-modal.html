@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 80%;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      max-width: 400px; /* Adjust maximum width as needed */
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0 20px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <label for="sheetName">Sheet Name:</label>
+    <input type="text" id="sheetName" placeholder="Enter new sheet name">
+
+    <label for="tableType">Table Type:</label>
+    <select id="tableType">
+      <option value="" disabled selected>Choose table type</option>
+      <option value="type1">Type 1: With Remind Date and Completion Check</option>
+      <option value="type2">Type 2: With Remind Date, No Completion Check</option>
+      <option value="type3">Type 3: No API Key, Only Table URL Reminder</option>
+    </select>
+
+    <label for="themeColor">Theme Color:</label>
+    <select id="themeColor">
+      <option value="" disabled selected>Choose a table color</option>
+      <!-- Additional options will be populated by server-side function -->
+    </select>
+
+    <button onclick="createNewSheet()">Create New Sheet</button>
+  </div>
+
+  <script>
+    // This function will call the server-side function to create a new sheet
+    function createNewSheet() {
+      let sheetName = document.getElementById('sheetName').value;
+      let tableType = document.getElementById('tableType').value;
+      let themeColor = document.getElementById('themeColor').value;
+      google.script.run
+        .withSuccessHandler(function() {
+          google.script.host.close(); // Close the dialog after creation
+        })
+        .withFailureHandler(function(error) {
+          alert(error); // Show error message
+        })
+        .createSheetWithSettings(sheetName, tableType, themeColor);
+    }
+
+    // Populate the theme color dropdown
+    let colorList = JSON.parse(<?= colorList ?>);
+    let select = document.getElementById('themeColor');
+    colorList.forEach(function(color) {
+      let option = document.createElement('option');
+      option.value = `${color.name}|${color.hex}`; 
+      option.textContent = color.name;
+      select.appendChild(option);
+    });
+  </script>
+</body>
+</html>

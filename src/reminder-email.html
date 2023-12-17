@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap does not work in Gmail -->
+    <style>
+        .tableName {
+            font-weight: bold;
+            font-size: large;
+        }
+        .tableUrl {
+            background: rgb(119, 243, 179);
+            text-decoration: none;
+        }
+        .todoItem{
+            font-weight: bold;
+        }
+        .todoUrl{
+            color: blue;
+            text-decoration: none;
+        }
+        .bracket{
+          font-weight: bold;
+        }
+        .test-reminder {
+            background-color: yellow; /* Highlight in yellow */
+            padding: 10px; /* Optional padding for better appearance */
+            border-radius: 5px; /* Optional rounded corners */
+        }
+    </style>
+    
+</head>
+<body>
+    <? if (testCheck && testCheck === "test") { ?>
+        <p class="test-reminder">This is a test reminder. Check the contents below. If they work fine, please go to this 
+        <a href="<?= setInstructionSlideUrl ?>">instruction manual</a> and set a function and trigger for the target reminder.</p>
+    <? } ?>
+
+    <? if (remindDatePresence && remindDatePresence === "none") { ?>
+    <p> Please access <span class='tableName'>Notion ⇨ <a href="<?= tableUrl ?>" style="color: <?= themeColor ?>"><?= tableName ?></a></span> and conduct necessary tasks.</p>
+    <? } else { ?>
+    <p> Please access <span class='tableName'>Notion ⇨ <a href="<?= tableUrl ?>" style="color: <?= themeColor ?>"><?= tableName ?></a></span> and perform the following TO-DOs.</p>
+
+        <span class="bracket">【List of To-Do-Lists for today or already passed】</span>
+        <? for(let i=0; i<todoOverdue.length; i++) { ?>
+            <ul> <span class="todo"> To-Do: <?= todoOverdue[i]['Todo Title'] ?> </span>
+                <li> Date: <?= todoOverdue[i]['Remind Date'] ?> </li>
+                <li> 
+                    <a href="<?= todoOverdue[i]['Todo Item URL'] ?>" class="todoUrl">Link</a>
+                </li>
+            </ul>
+        <? } ?>
+
+        <br>
+        -----------------------------------------------------------------
+        <br>
+        <span class="bracket">【FYI: To-Do-Lists that are throughout the year】</span>
+        <? for(let i=0; i<todoThroughout.length; i++) { ?>
+            <ul> <span class="todo"> To-Do: <?= todoThroughout[i]['Todo Title'] ?> </span>
+                <li> 
+                    <a href="<?= todoThroughout[i]['Todo Item URL'] ?>" class="todoUrl">Link</a>
+                </li>
+            </ul>
+        <? } ?>
+
+    <? } ?>
+</body>
+</html>
