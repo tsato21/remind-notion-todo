@@ -56,27 +56,45 @@ title: 'Notion Reminder Class'
 
     <h2 id="setup">Setup</h2>
     <p>Go to the Notion Reminder custom menu and click on it. A prompt will appear saying "Authorization is required". Follow the instructions to authorize.</p>
+    <div>
+      <img src="assets/images/gas-authorization.png" alt="gas-authorization" id="gas-authorization" width="450" height="250">
+    </div>
 
     <h2 id="usage">Usage</h2>
 
     <h3 id="setting-reminder">Setting Reminder for a Notion Table</h3>
     <p>The process involves creating a new sheet, inputting necessary information, testing a reminder, creating a function in Apps Script, and setting a trigger for that function.</p>
-    <img src="assets/images/gas-authorization" alt="gas-authorization" id="gas-authorization" width="450" height="250">
 
     <ol>
         <li><strong>Create a New Sheet</strong>: From the "Notion Reminder" custom menu in your Google Sheet, select 'Create New Sheet'. This displays a modal for selecting the table type and theme color. A new sheet is created based on your selections.</li>
-        <img src="assets/images/create-sheet-modal_1.png" alt="Create New Sheet Modal 1" id="create-sheet-modal_1-img" width="450" height="250">
-        <img src="assets/images/create-sheet-modal_2.png" alt="Create New Sheet Modal 2" id="create-sheet-modal_2-img" width="450" height="250">
+        <div>
+          <img src="assets/images/create-sheet-modal_1.png" alt="Create New Sheet Modal 1" id="create-sheet-modal_1-img" width="450" height="250">
+        </div>
+        <div>
+          <img src="assets/images/create-sheet-modal_2.png" alt="Create New Sheet Modal 2" id="create-sheet-modal_2-img" width="450" height="250">
+        </div>
         <li><strong>Input Necessary Information on Sheet</strong>: Enter the required information in the designated (orange) cells of the new sheet. This includes the Integration API Key, which must be created and inputted.</li>
-        <img src="assets/images/input-info.png" alt="Input Information on Sheet" id="input-info-img" width="450" height="250">
+        <div>
+          <img src="assets/images/input-info.png" alt="Input Information on Sheet" id="input-info-img" width="450" height="250">
+        </div>
         <li><strong>Test the Reminder</strong>: From the "Notion Reminder" custom menu, select 'Test Reminder'. This tests the entire process from reading values in the spreadsheet to referencing the relevant Notion table and properties. If the email is sent, check if the content in the email is as expected.</li>
-        <img src="assets/images/test-reminder.png" alt="Test Reminder" id="test-reminder-img" width="450" height="250">
-        <img src="assets/images/test-reminder-email.png" alt="Test Reminder Email" id="test-reminder-email-img" width="450" height="250">
+        <div>
+          <img src="assets/images/test-reminder.png" alt="Test Reminder" id="test-reminder-img" width="450" height="250">
+        </div>
+        <div>
+          <img src="assets/images/test-reminder-email.png" alt="Test Reminder Email" id="test-reminder-email-img" width="450" height="250">
+        </div>
         <li><strong>Create a Function for the Reminder</strong>: Go to the Apps Script editor, open the "code-each-reminder" file, copy the 'reminderTodoSample' function, rename it, and adjust the parameters to match the name of your reminder sheet.</li>
-        <img src="assets/images/make-function.png" alt="Create Function in Apps Script" id="create-function-img" width="450" height="250">
+        <div>
+          <img src="assets/images/make-function.png" alt="Create Function in Apps Script" id="create-function-img" width="450" height="250">
+        </div>
         <li><strong>Set a Trigger for the Function</strong>: Create a trigger in the Apps Script editor to suit your needs.</li>
-        <img src="assets/images/set-trigger.png" alt="Set Trigger" id="set-trigger-img" width="450" height="250">
-        <img src="assets/images/set-trigger-2.png" alt="Set Trigger" id="set-trigger-2-img" width="450" height="250">
+        <div>
+          <img src="assets/images/set-trigger.png" alt="Set Trigger" id="set-trigger-img" width="450" height="250">
+        </div>
+        <div>
+          <img src="assets/images/set-trigger-2.png" alt="Set Trigger" id="set-trigger-2-img" width="450" height="250">
+        </div>
     </ol>
 
     <h3 id="update-index">Update Index Sheet</h3>
